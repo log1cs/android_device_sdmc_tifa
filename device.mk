@@ -4,11 +4,8 @@
 #
 
 ## Bluetooth
-BOARD_HAVE_BLUETOOTH_RTK_TV := true
-include hardware/realtek/rtkbt/rtkbt.mk
-
 PRODUCT_PACKAGES += \
-    BluetoothOverlayTarget
+    BluetoothOverlayTifa
 
 ## Init
 PRODUCT_PACKAGES += \
@@ -16,31 +13,23 @@ PRODUCT_PACKAGES += \
 
 ## Keylayout (IR)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/Vendor_0957_Product_002d.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0957_Product_002d.kl \
-    $(LOCAL_PATH)/keylayout/Vendor_0957_Product_0026.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0957_Product_0026.kl \
-    $(LOCAL_PATH)/keylayout/Vendor_0957_Product_003f.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0957_Product_003f.kl \
-    $(LOCAL_PATH)/keylayout/Vendor_0957_Product_0031.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0957_Product_0031.kl
+    $(LOCAL_PATH)/keylayout/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl \
+    $(LOCAL_PATH)/keylayout/Vendor_005d_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_005d_Product_0001.kl
 
 ## Netflix
 PRODUCT_PACKAGES += \
     NetflixConfig \
-    NetflixConfigOverlayTarget
+    NetflixConfigOverlayTifa
 
 ## Platform
 TARGET_AMLOGIC_SOC := s4
 
 ## Soong Namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    hardware/realtek/wlan
-
-## Wi-Fi
-PRODUCT_CFI_INCLUDE_PATHS += hardware/realtek/wlan/wpa_supplicant_8_lib
-
-$(call soong_config_set,wpa_supplicant_8,board_wlan_device,realtek)
+    $(LOCAL_PATH)
 
 ## Inherit from the common tree product makefile
 $(call inherit-product, device/amlogic/ne-common/ne.mk)
 
 ## Inherit from the proprietary files makefile
-$(call inherit-product, vendor/amlogic/oppen/oppen-vendor.mk)
+$(call inherit-product, vendor/sdmc/tifa/tifa-vendor.mk)
