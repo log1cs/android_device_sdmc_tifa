@@ -17,3 +17,6 @@ ro.vendor.nrdp.oemmodel=onn_onn. 4K Streaming Box
 
 ## SOC
 ro.soc.model=AMLS905Y4
+
+## Wi-Fi
+wifi.direct.interface=p2p0
